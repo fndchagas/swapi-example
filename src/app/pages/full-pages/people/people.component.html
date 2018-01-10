@@ -1,0 +1,41 @@
+<section id="filter" class="mb-3">
+   <div class="row">
+       <div class="col-12">
+           <div class="content-header">People from Swapi-API</div>
+           <p class="content-sub-header">A list of Star Wars people!</p>
+       </div>
+   </div>
+     <div class="row">
+         <div class="col-12">
+             <div class="content-header">Filter Option</div>
+             <input type='text' style='padding:8px;margin:15px auto;width:30%;' placeholder='Filter by name...' (keyup)='updateFilter($event)'
+             />
+         </div>
+     </div>
+     <div class="row">
+         <div class="col-sm-12">
+             <ngx-datatable #table class='bootstrap'  [rows]='rows' [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50"
+                 [rowHeight]="'auto'">
+
+               <ngx-datatable-column name="Id" prop="id">
+                 <ng-template let-value="value" ngx-datatable-cell-template>
+                  <a href="/pages/profile/{{value}}">{{value}}</a>
+                 </ng-template>
+
+               </ngx-datatable-column>
+
+              <ngx-datatable-column name="Name" prop="name">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Hair Color" prop="hair_color">
+              </ngx-datatable-column>
+
+              <ngx-datatable-column name="Height" prop="height">
+                <ng-template let-value="value" ngx-datatable-cell-template>
+                 {{value}}
+               </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+         </div>
+     </div>
+ </section>
